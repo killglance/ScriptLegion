@@ -19,15 +19,8 @@ end
 file = File.open( "hosts.cfg" )
 
 config = parse_config( file )
-#while file.gets do
-#  if $_.match /\[(.+?)\]/
-#    insert_point = $1
-#    config[insert_point] = {}
-#  elsif $_.match /(.+?)=(.+)/
-#    config[insert_point][$1.strip] = $2.strip
-#  end
-#end
 
 myHost = Host.new( config["Servers"]["hostname"], config["Servers"]["ip"] )
 
 puts myHost
+file.close
