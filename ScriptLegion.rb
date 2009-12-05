@@ -12,15 +12,14 @@ def parse_config( my_file )
          config[insert_point][$1.strip] = $2.strip
       end
    end
+   my_file.close
    return config
 end
       
 
 file = File.open( "hosts.cfg" )
-
+grid = Array.new
 config = parse_config( file )
+config.each { |key,value| if value["type"] = "server" then grid << Host.new( key, value["ip"] ) end }
 
-myHost = Host.new( config["Servers"]["hostname"], config["Servers"]["ip"] )
-
-puts myHost
-file.close
+puts grid

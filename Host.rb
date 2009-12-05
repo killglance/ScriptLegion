@@ -1,7 +1,7 @@
 #!/usr/bin/ruby
 
 class Host
-   def initialize(name, ip)
+   def initialize(name = nil, ip = nil)
       @hostname = name
       @ip = ip
    end
